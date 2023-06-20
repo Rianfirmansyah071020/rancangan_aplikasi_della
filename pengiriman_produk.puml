@@ -1,0 +1,6 @@
+@startuml
+
+rectangle pengiriman_memakai_jasa_pengiriman
+rectangle JNE
+
+@enduml

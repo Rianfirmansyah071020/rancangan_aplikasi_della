@@ -1,0 +1,13 @@
+@startuml
+
+    rectangle pemilihan_produk
+    rectangle produk_masuk_keranjang
+    rectangle produk_dipesan
+    rectangle produk_dibayar
+    rectangle produk_dikirim
+
+    pemilihan_produk --> produk_masuk_keranjang 
+    produk_masuk_keranjang --> produk_dipesan 
+    produk_dipesan --> produk_dibayar 
+    produk_dibayar --> produk_dikirim
+@enduml

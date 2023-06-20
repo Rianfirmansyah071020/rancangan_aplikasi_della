@@ -1,0 +1,7 @@
+@startuml
+
+rectangle payment_gateway
+rectangle open_hi
+rectangle chat 
+
+@enduml

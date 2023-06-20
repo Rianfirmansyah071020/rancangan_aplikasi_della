@@ -1,0 +1,37 @@
+@startuml
+
+actor admin
+actor pelanggan 
+actor pemilik
+usecase melakukan_login 
+usecase melakukan_logout 
+usecase mengelola_data_admin
+usecase mengelola_data_pemilik
+usecase mengelola_data_produk
+usecase mengelola_data_transaksi
+usecase mengelola_data_laporan
+usecase menlihat_data_laporan
+usecase mengelola_data_pelanggan
+usecase melakukan_registrasi
+usecase melakukan_transksaksi
+usecase mengelola_data_pemesanan
+
+admin -- melakukan_login
+admin -- mengelola_data_admin
+admin -- mengelola_data_pemilik
+admin -- mengelola_data_produk
+admin -- mengelola_data_transaksi
+admin -- mengelola_data_laporan
+admin -- mengelola_data_pelanggan
+admin -- melakukan_logout
+
+pemilik -- melakukan_login
+pemilik -- menlihat_data_laporan
+pemilik -- melakukan_logout
+
+pelanggan -- melakukan_registrasi
+pelanggan -- melakukan_transksaksi
+pelanggan -- mengelola_data_pemesanan
+pelanggan -- melakukan_logout
+
+@enduml

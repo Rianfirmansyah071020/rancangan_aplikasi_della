@@ -1,0 +1,8 @@
+@startuml
+
+rectangle baju_cowok_lengan_panjang_pendek 
+rectangle baju_cewek_model
+rectangle ukuran_baju 
+rectangle produk_dibeli_eceran_seri_satuan
+
+@enduml

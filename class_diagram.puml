@@ -1,0 +1,137 @@
+@startuml
+
+class tb_admin {
+    + id_admin 
+    - nama_admin
+    - jenis_kelamin_admin
+    - alamat_admin
+    - nomor_hp_admin
+    - gambar_admin
+}
+
+class tb_pemilik {
+    + id_pemilik 
+    - nama_pemilik
+    - jenis_kelamin_pemilik
+    - alamat_pemilik
+    - nomor_hp_pemilik
+    - gambar_pemilik
+}
+
+class tb_pelanggan {
+    + id_pelanggan
+    - nama_pelanggan
+    - jenis_kelamin_pelanggan
+    - alamat_pelanggan
+    - nomor_hp_pelanggan
+    - gambar_pelanggan
+}
+
+class tb_batik {
+    + id_batik
+    - kode_batik
+    - nama_batik
+    - ukuran_batik
+    - tipe_batik
+    - stok_batik
+    - gambar_batik
+    - deskripsi_batik
+}
+
+class users {
+    + id_user
+    - kode_user
+    - email_user
+    - password_user
+    - status_user
+}
+
+class tb_pemesanan_cart {
+    + id_pemesanan_cart
+    + id_pelanggan    
+    + id_batik     
+    - tanggal_pemesanan_cart 
+    - jenis_pemesanan_cart 
+    - jumlah_pemesanan_cart 
+    - status_pemesanan_cart
+    - total_pemesanan_cart
+}
+
+class tb_pemesanan {
+    + id_pemesanan    
+    + id_pelanggan
+    + id_batik
+    + id_admin 
+    - tanggal_pemesanan 
+    - jenis_pemesanan 
+    - jumlah_pemesanan 
+    - status_pemesanan
+    - total_pemesanan
+}
+
+class tb_pemesanan_history  {
+    + id_pemesanan_history
+    + id_pemesanan
+    - tanggal_pemesanan_history
+}
+
+class tb_chat {
+    + id_chat 
+    + id_admin 
+    + id_pelanggan    
+    - tanggal_chat 
+    - chat 
+    - file_chat 
+
+}
+
+class tb_jasa_pengiriman {
+    + id_jasa_pengiriman
+    - nama_jasa_pengiriman
+    - deskripsi_jasa_pengiriman
+}
+
+class tb_pembayaran {
+    + id_pembayaran
+    + id_pemesanan
+    + id_pelanggan
+    + id_admin 
+    - kode_pembayaran
+    - tanggal_pembayaran
+    - total_pembayaran
+}
+
+class tb_pengiriman {
+    + id_pengiriman 
+    + id_pemesanan
+    + id_admin
+    + id_pelanggan
+    + id_jasa_pengiriman
+    - tanggal_pengiriman
+    - status_pengiriman
+}
+
+
+tb_pelanggan "1" --> "n" tb_pemesanan_cart
+tb_batik "1" --> "1" tb_pemesanan_cart
+
+
+tb_pelanggan "1" --> "n" tb_pemesanan
+tb_batik "1" --> "1" tb_pemesanan
+tb_admin "1" --> "n" tb_pemesanan
+
+tb_admin "1" --> "n" tb_chat
+tb_pelanggan "1" --> "n" tb_chat
+
+tb_pemesanan "1" --> "1" tb_pembayaran
+tb_admin "1" --> "n" tb_pembayaran
+tb_pelanggan "1" --> "1" tb_pembayaran
+
+
+tb_pemesanan "1" --> "1" tb_pemesanan_history
+
+tb_pemesanan "1" --> "1" tb_pengiriman
+tb_pelanggan "1" --> "1" tb_pengiriman
+tb_admin "1" --> "n" tb_pengiriman
+tb_jasa_pengiriman "1" --> "n" tb_pengiriman
+@enduml
